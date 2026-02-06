@@ -12,8 +12,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 COPY --from=builder /app/dist ./dist
-COPY drizzle.config.ts ./
-COPY server/db ./server/db
+COPY --from=builder /app/drizzle ./drizzle
 
 EXPOSE 3000
-CMD ["node", "dist/server/index.js"]
+CMD ["sh", "-c", "node dist/server/migrate.js && node dist/server/index.js"]
