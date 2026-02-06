@@ -156,6 +156,23 @@ export default function AppSettings() {
           </form>
         </section>
 
+        {/* App ID */}
+        <section className="bg-card rounded-xl border border-border p-6">
+          <h3 className="text-lg font-semibold text-foreground mb-2">App ID</h3>
+          <p className="text-sm text-muted-foreground mb-3">Use this ID in your client app to identify this application when calling the API.</p>
+          <div className="flex items-center gap-2">
+            <code className="flex-1 bg-background rounded-lg border border-border px-3 py-2 text-xs text-foreground font-mono break-all">
+              {app.id}
+            </code>
+            <button
+              onClick={() => copyToClipboard(app.id, 'appid')}
+              className="shrink-0 h-9 w-9 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {copiedId === 'appid' ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+            </button>
+          </div>
+        </section>
+
         {/* VAPID Public Key */}
         <section className="bg-card rounded-xl border border-border p-6">
           <h3 className="text-lg font-semibold text-foreground mb-2">VAPID Public Key</h3>
