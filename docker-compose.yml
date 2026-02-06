@@ -3,7 +3,7 @@ services:
     container_name: anich-pwa-notifications
     build: .
     ports:
-      - "3000:3000"
+      - "33004:3000"
     environment:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/pwa_notifications
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-changeme}
