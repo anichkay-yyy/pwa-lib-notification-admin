@@ -11,7 +11,7 @@ export const apiKeyAuth = createMiddleware(async (c, next) => {
   }
 
   const hash = hashApiKey(apiKey);
-  const appId = c.req.param('appId');
+  const appId = c.req.param('appId')!;
 
   const [key] = await db
     .select()
